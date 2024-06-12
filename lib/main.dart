@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app_webtree/03_controller/weather_controller.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await dotenv.load(fileName: ".env");
+
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => WeatherController())
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -58,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    context.read<WeatherController>().getWeatherApiFn();
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
