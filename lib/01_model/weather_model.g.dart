@@ -42,10 +42,10 @@ Map<String, dynamic> _$$LoactionModelImplToJson(_$LoactionModelImpl instance) =>
 
 _$CurrentModelImpl _$$CurrentModelImplFromJson(Map<String, dynamic> json) =>
     _$CurrentModelImpl(
-      tempC: json['temp_c'] as String?,
-      tempF: json['temp_f'] as String?,
-      isday: json['is_day'] as String?,
-      windKph: json['wind_kph'] as String?,
+      tempC: (json['temp_c'] as num?)?.toDouble(),
+      tempF: (json['temp_f'] as num?)?.toDouble(),
+      isday: (json['is_day'] as num?)?.toInt(),
+      windKph: (json['wind_kph'] as num?)?.toDouble(),
       humidity: (json['humidity'] as num?)?.toDouble(),
       condition: json['condition'] == null
           ? null

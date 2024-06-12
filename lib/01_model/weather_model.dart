@@ -31,10 +31,10 @@ class LoactionModel with _$LoactionModel {
 @freezed
 class CurrentModel with _$CurrentModel {
   const factory CurrentModel(
-      {@JsonKey(name: 'temp_c') String? tempC,
-      @JsonKey(name: 'temp_f') String? tempF,
-      @JsonKey(name: 'is_day') String? isday,
-      @JsonKey(name: 'wind_kph') String? windKph,
+      {@JsonKey(name: 'temp_c') double? tempC,
+      @JsonKey(name: 'temp_f') double? tempF,
+      @JsonKey(name: 'is_day') int? isday,
+      @JsonKey(name: 'wind_kph') double? windKph,
       double? humidity,
       ConditionModel? condition}) = _CurrentModel;
 

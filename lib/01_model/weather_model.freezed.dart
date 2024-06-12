@@ -427,13 +427,13 @@ CurrentModel _$CurrentModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CurrentModel {
   @JsonKey(name: 'temp_c')
-  String? get tempC => throw _privateConstructorUsedError;
+  double? get tempC => throw _privateConstructorUsedError;
   @JsonKey(name: 'temp_f')
-  String? get tempF => throw _privateConstructorUsedError;
+  double? get tempF => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_day')
-  String? get isday => throw _privateConstructorUsedError;
+  int? get isday => throw _privateConstructorUsedError;
   @JsonKey(name: 'wind_kph')
-  String? get windKph => throw _privateConstructorUsedError;
+  double? get windKph => throw _privateConstructorUsedError;
   double? get humidity => throw _privateConstructorUsedError;
   ConditionModel? get condition => throw _privateConstructorUsedError;
 
@@ -450,10 +450,10 @@ abstract class $CurrentModelCopyWith<$Res> {
       _$CurrentModelCopyWithImpl<$Res, CurrentModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'temp_c') String? tempC,
-      @JsonKey(name: 'temp_f') String? tempF,
-      @JsonKey(name: 'is_day') String? isday,
-      @JsonKey(name: 'wind_kph') String? windKph,
+      {@JsonKey(name: 'temp_c') double? tempC,
+      @JsonKey(name: 'temp_f') double? tempF,
+      @JsonKey(name: 'is_day') int? isday,
+      @JsonKey(name: 'wind_kph') double? windKph,
       double? humidity,
       ConditionModel? condition});
 
@@ -484,19 +484,19 @@ class _$CurrentModelCopyWithImpl<$Res, $Val extends CurrentModel>
       tempC: freezed == tempC
           ? _value.tempC
           : tempC // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       tempF: freezed == tempF
           ? _value.tempF
           : tempF // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       isday: freezed == isday
           ? _value.isday
           : isday // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       windKph: freezed == windKph
           ? _value.windKph
           : windKph // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
@@ -530,10 +530,10 @@ abstract class _$$CurrentModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'temp_c') String? tempC,
-      @JsonKey(name: 'temp_f') String? tempF,
-      @JsonKey(name: 'is_day') String? isday,
-      @JsonKey(name: 'wind_kph') String? windKph,
+      {@JsonKey(name: 'temp_c') double? tempC,
+      @JsonKey(name: 'temp_f') double? tempF,
+      @JsonKey(name: 'is_day') int? isday,
+      @JsonKey(name: 'wind_kph') double? windKph,
       double? humidity,
       ConditionModel? condition});
 
@@ -563,19 +563,19 @@ class __$$CurrentModelImplCopyWithImpl<$Res>
       tempC: freezed == tempC
           ? _value.tempC
           : tempC // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       tempF: freezed == tempF
           ? _value.tempF
           : tempF // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       isday: freezed == isday
           ? _value.isday
           : isday // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       windKph: freezed == windKph
           ? _value.windKph
           : windKph // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
@@ -604,16 +604,16 @@ class _$CurrentModelImpl implements _CurrentModel {
 
   @override
   @JsonKey(name: 'temp_c')
-  final String? tempC;
+  final double? tempC;
   @override
   @JsonKey(name: 'temp_f')
-  final String? tempF;
+  final double? tempF;
   @override
   @JsonKey(name: 'is_day')
-  final String? isday;
+  final int? isday;
   @override
   @JsonKey(name: 'wind_kph')
-  final String? windKph;
+  final double? windKph;
   @override
   final double? humidity;
   @override
@@ -660,10 +660,10 @@ class _$CurrentModelImpl implements _CurrentModel {
 
 abstract class _CurrentModel implements CurrentModel {
   const factory _CurrentModel(
-      {@JsonKey(name: 'temp_c') final String? tempC,
-      @JsonKey(name: 'temp_f') final String? tempF,
-      @JsonKey(name: 'is_day') final String? isday,
-      @JsonKey(name: 'wind_kph') final String? windKph,
+      {@JsonKey(name: 'temp_c') final double? tempC,
+      @JsonKey(name: 'temp_f') final double? tempF,
+      @JsonKey(name: 'is_day') final int? isday,
+      @JsonKey(name: 'wind_kph') final double? windKph,
       final double? humidity,
       final ConditionModel? condition}) = _$CurrentModelImpl;
 
@@ -672,16 +672,16 @@ abstract class _CurrentModel implements CurrentModel {
 
   @override
   @JsonKey(name: 'temp_c')
-  String? get tempC;
+  double? get tempC;
   @override
   @JsonKey(name: 'temp_f')
-  String? get tempF;
+  double? get tempF;
   @override
   @JsonKey(name: 'is_day')
-  String? get isday;
+  int? get isday;
   @override
   @JsonKey(name: 'wind_kph')
-  String? get windKph;
+  double? get windKph;
   @override
   double? get humidity;
   @override
