@@ -19,6 +19,7 @@ class LoactionModel with _$LoactionModel {
   const factory LoactionModel({
     String? name,
     String? country,
+    String? region,
     double? lat,
     double? lon,
     @Default(false) bool? isSelected,
@@ -35,7 +36,7 @@ class CurrentModel with _$CurrentModel {
       @JsonKey(name: 'temp_f') double? tempF,
       @JsonKey(name: 'is_day') int? isday,
       @JsonKey(name: 'wind_kph') double? windKph,
-      double? humidity,
+      num? humidity,
       ConditionModel? condition}) = _CurrentModel;
 
   factory CurrentModel.fromJson(Map<String, dynamic> json) =>

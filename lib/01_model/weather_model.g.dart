@@ -26,6 +26,7 @@ _$LoactionModelImpl _$$LoactionModelImplFromJson(Map<String, dynamic> json) =>
     _$LoactionModelImpl(
       name: json['name'] as String?,
       country: json['country'] as String?,
+      region: json['region'] as String?,
       lat: (json['lat'] as num?)?.toDouble(),
       lon: (json['lon'] as num?)?.toDouble(),
       isSelected: json['isSelected'] as bool? ?? false,
@@ -35,6 +36,7 @@ Map<String, dynamic> _$$LoactionModelImplToJson(_$LoactionModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'country': instance.country,
+      'region': instance.region,
       'lat': instance.lat,
       'lon': instance.lon,
       'isSelected': instance.isSelected,
@@ -46,7 +48,7 @@ _$CurrentModelImpl _$$CurrentModelImplFromJson(Map<String, dynamic> json) =>
       tempF: (json['temp_f'] as num?)?.toDouble(),
       isday: (json['is_day'] as num?)?.toInt(),
       windKph: (json['wind_kph'] as num?)?.toDouble(),
-      humidity: (json['humidity'] as num?)?.toDouble(),
+      humidity: json['humidity'] as num?,
       condition: json['condition'] == null
           ? null
           : ConditionModel.fromJson(json['condition'] as Map<String, dynamic>),

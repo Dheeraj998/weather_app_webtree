@@ -32,7 +32,7 @@ class WeatherController extends ChangeNotifier {
             status: APIstatus.onSuccess);
       } else {
         wetherApiResponse = wetherApiResponse?.copyWith(
-            // message: jsonDecode(response!.body)['message'],
+            message: jsonDecode(response!.body)['error']['message'],
             loading: false,
             status: APIstatus.onError);
       }

@@ -39,8 +39,11 @@ class _LocationScreenState extends State<LocationScreen> {
     weather.getWeatherApiFn(query: searchCtr.text).then((value) {
       FocusScope.of(context).unfocus();
       if (value?.status == APIstatus.onSuccess) {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => WeatherScreen()));
+        searchCtr.clear();
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => WeatherScreen(
+                  locationName: searchCtr.text,
+                )));
       } else {
         CustomAlerts.customSnackBar(context,
             text: value?.message ?? "Something wentwrong", color: Colors.red);
@@ -51,98 +54,99 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue.withOpacity(.5),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 27.w),
           child: Center(
             child: OrientationBuilder(builder: (context, orientation) {
               return orientation == Orientation.landscape
-                  ? Form(
-                      key: _formKey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CommonText(
-                            text: "Weather Forecasts",
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white,
-                          ),
-                          Image.asset(
-                            AppImages.weatherImage,
-                            height: 100.h,
-                            width: 100.w,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: 150.w,
-                                child: CommonTextField(
-                                  controller: searchCtr,
-                                  hintText: "Search city..",
-                                  fillColor: Colors.white,
-                                  hintStyle: TextStyle(color: Colors.black),
-                                ),
-                              ),
-                              20.horizontalSpace,
-                            ],
-                          ),
-                          20.verticalSpace,
-                          CommonButton(
-                            onTap: getWetherApiFn,
-                            borderRadius: 10.r,
-                            buttonText: "Search",
-                            buttonStyle: TextStyle(color: Colors.black),
-                            buttonWidth: 60.w,
-                            buttonHeight: 70.h,
-                            buttonColor: Colors.yellow,
-                          )
-                        ],
-                      ),
-                    )
-                  : Form(
-                      key: _formKey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CommonText(
-                            text: "Weather Forecasts",
-                            fontSize: 40.sp,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white,
-                          ),
-                          Image.asset(
-                            AppImages.weatherImage,
-                            height: 100.h,
-                            width: 100.w,
-                          ),
-                          20.verticalSpace,
-                          CommonTextField(
-                            controller: searchCtr,
-                            hintText: "Search city..",
-                            fillColor: Colors.white,
-                            hintStyle: const TextStyle(color: Colors.black),
-                          ),
-                          20.verticalSpace,
-                          Consumer<WeatherController>(
-                              builder: (context, weather, _) {
-                            return CommonButton(
-                              onLoading: weather.wetherApiResponse?.loading,
-                              onTap: getWetherApiFn,
-                              borderRadius: 10.r,
-                              buttonText: "Search",
-                              buttonStyle: const TextStyle(color: Colors.black),
-                              buttonWidth: 150.w,
-                              buttonHeight: 50.h,
-                              buttonColor: Colors.yellow,
-                            );
-                          })
-                        ],
-                      ),
-                    );
+                  ? _landScapeView()
+                  : _portraitView();
             }),
           ),
         ));
+  }
+
+  Column _portraitView() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CommonText(
+          text: "Weather Forecasts",
+          fontSize: 40.sp,
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
+        ),
+        Image.asset(
+          AppImages.weatherImage,
+          height: 100.h,
+          width: 100.w,
+        ),
+        20.verticalSpace,
+        CommonTextField(
+          controller: searchCtr,
+          hintText: "Search city..",
+          fillColor: Colors.white,
+          hintStyle: const TextStyle(color: Colors.black),
+        ),
+        20.verticalSpace,
+        Consumer<WeatherController>(builder: (context, weather, _) {
+          return CommonButton(
+            onLoading: weather.wetherApiResponse?.loading,
+            onTap: getWetherApiFn,
+            borderRadius: 10.r,
+            buttonText: "Search",
+            buttonStyle: const TextStyle(color: Colors.black),
+            buttonWidth: 150.w,
+            buttonHeight: 50.h,
+            buttonColor: Colors.yellow,
+          );
+        })
+      ],
+    );
+  }
+
+  Column _landScapeView() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CommonText(
+          text: "Weather Forecasts",
+          fontSize: 15.sp,
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
+        ),
+        Image.asset(
+          AppImages.weatherImage,
+          height: 100.h,
+          width: 100.w,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 150.w,
+              child: CommonTextField(
+                controller: searchCtr,
+                hintText: "Search city..",
+                fillColor: Colors.white,
+                hintStyle: TextStyle(color: Colors.black),
+              ),
+            ),
+            20.horizontalSpace,
+          ],
+        ),
+        20.verticalSpace,
+        CommonButton(
+          onTap: getWetherApiFn,
+          borderRadius: 10.r,
+          buttonText: "Search",
+          buttonStyle: TextStyle(color: Colors.black),
+          buttonWidth: 60.w,
+          buttonHeight: 70.h,
+          buttonColor: Colors.yellow,
+        )
+      ],
+    );
   }
 }

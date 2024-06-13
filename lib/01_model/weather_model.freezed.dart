@@ -209,6 +209,7 @@ LoactionModel _$LoactionModelFromJson(Map<String, dynamic> json) {
 mixin _$LoactionModel {
   String? get name => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
+  String? get region => throw _privateConstructorUsedError;
   double? get lat => throw _privateConstructorUsedError;
   double? get lon => throw _privateConstructorUsedError;
   bool? get isSelected => throw _privateConstructorUsedError;
@@ -228,6 +229,7 @@ abstract class $LoactionModelCopyWith<$Res> {
   $Res call(
       {String? name,
       String? country,
+      String? region,
       double? lat,
       double? lon,
       bool? isSelected});
@@ -248,6 +250,7 @@ class _$LoactionModelCopyWithImpl<$Res, $Val extends LoactionModel>
   $Res call({
     Object? name = freezed,
     Object? country = freezed,
+    Object? region = freezed,
     Object? lat = freezed,
     Object? lon = freezed,
     Object? isSelected = freezed,
@@ -260,6 +263,10 @@ class _$LoactionModelCopyWithImpl<$Res, $Val extends LoactionModel>
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
+              as String?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
               as String?,
       lat: freezed == lat
           ? _value.lat
@@ -288,6 +295,7 @@ abstract class _$$LoactionModelImplCopyWith<$Res>
   $Res call(
       {String? name,
       String? country,
+      String? region,
       double? lat,
       double? lon,
       bool? isSelected});
@@ -306,6 +314,7 @@ class __$$LoactionModelImplCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? country = freezed,
+    Object? region = freezed,
     Object? lat = freezed,
     Object? lon = freezed,
     Object? isSelected = freezed,
@@ -318,6 +327,10 @@ class __$$LoactionModelImplCopyWithImpl<$Res>
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
+              as String?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
               as String?,
       lat: freezed == lat
           ? _value.lat
@@ -339,7 +352,12 @@ class __$$LoactionModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LoactionModelImpl implements _LoactionModel {
   const _$LoactionModelImpl(
-      {this.name, this.country, this.lat, this.lon, this.isSelected = false});
+      {this.name,
+      this.country,
+      this.region,
+      this.lat,
+      this.lon,
+      this.isSelected = false});
 
   factory _$LoactionModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoactionModelImplFromJson(json);
@@ -348,6 +366,8 @@ class _$LoactionModelImpl implements _LoactionModel {
   final String? name;
   @override
   final String? country;
+  @override
+  final String? region;
   @override
   final double? lat;
   @override
@@ -358,7 +378,7 @@ class _$LoactionModelImpl implements _LoactionModel {
 
   @override
   String toString() {
-    return 'LoactionModel(name: $name, country: $country, lat: $lat, lon: $lon, isSelected: $isSelected)';
+    return 'LoactionModel(name: $name, country: $country, region: $region, lat: $lat, lon: $lon, isSelected: $isSelected)';
   }
 
   @override
@@ -368,6 +388,7 @@ class _$LoactionModelImpl implements _LoactionModel {
             other is _$LoactionModelImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.country, country) || other.country == country) &&
+            (identical(other.region, region) || other.region == region) &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lon, lon) || other.lon == lon) &&
             (identical(other.isSelected, isSelected) ||
@@ -377,7 +398,7 @@ class _$LoactionModelImpl implements _LoactionModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, country, lat, lon, isSelected);
+      Object.hash(runtimeType, name, country, region, lat, lon, isSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -397,6 +418,7 @@ abstract class _LoactionModel implements LoactionModel {
   const factory _LoactionModel(
       {final String? name,
       final String? country,
+      final String? region,
       final double? lat,
       final double? lon,
       final bool? isSelected}) = _$LoactionModelImpl;
@@ -408,6 +430,8 @@ abstract class _LoactionModel implements LoactionModel {
   String? get name;
   @override
   String? get country;
+  @override
+  String? get region;
   @override
   double? get lat;
   @override
@@ -434,7 +458,7 @@ mixin _$CurrentModel {
   int? get isday => throw _privateConstructorUsedError;
   @JsonKey(name: 'wind_kph')
   double? get windKph => throw _privateConstructorUsedError;
-  double? get humidity => throw _privateConstructorUsedError;
+  num? get humidity => throw _privateConstructorUsedError;
   ConditionModel? get condition => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -454,7 +478,7 @@ abstract class $CurrentModelCopyWith<$Res> {
       @JsonKey(name: 'temp_f') double? tempF,
       @JsonKey(name: 'is_day') int? isday,
       @JsonKey(name: 'wind_kph') double? windKph,
-      double? humidity,
+      num? humidity,
       ConditionModel? condition});
 
   $ConditionModelCopyWith<$Res>? get condition;
@@ -500,7 +524,7 @@ class _$CurrentModelCopyWithImpl<$Res, $Val extends CurrentModel>
       humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as num?,
       condition: freezed == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
@@ -534,7 +558,7 @@ abstract class _$$CurrentModelImplCopyWith<$Res>
       @JsonKey(name: 'temp_f') double? tempF,
       @JsonKey(name: 'is_day') int? isday,
       @JsonKey(name: 'wind_kph') double? windKph,
-      double? humidity,
+      num? humidity,
       ConditionModel? condition});
 
   @override
@@ -579,7 +603,7 @@ class __$$CurrentModelImplCopyWithImpl<$Res>
       humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as num?,
       condition: freezed == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
@@ -615,7 +639,7 @@ class _$CurrentModelImpl implements _CurrentModel {
   @JsonKey(name: 'wind_kph')
   final double? windKph;
   @override
-  final double? humidity;
+  final num? humidity;
   @override
   final ConditionModel? condition;
 
@@ -664,7 +688,7 @@ abstract class _CurrentModel implements CurrentModel {
       @JsonKey(name: 'temp_f') final double? tempF,
       @JsonKey(name: 'is_day') final int? isday,
       @JsonKey(name: 'wind_kph') final double? windKph,
-      final double? humidity,
+      final num? humidity,
       final ConditionModel? condition}) = _$CurrentModelImpl;
 
   factory _CurrentModel.fromJson(Map<String, dynamic> json) =
@@ -683,7 +707,7 @@ abstract class _CurrentModel implements CurrentModel {
   @JsonKey(name: 'wind_kph')
   double? get windKph;
   @override
-  double? get humidity;
+  num? get humidity;
   @override
   ConditionModel? get condition;
   @override
